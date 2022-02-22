@@ -1,3 +1,4 @@
+# Credits: This is the winning solution published by Kaggle Grandmaster: Guanshuo Xu.
 def get_roberta_base4(text_list):
     import numpy as np
     import pandas as pd
