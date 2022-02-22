@@ -6,20 +6,31 @@ Kaggle competition - 2021
 Three data files in `data/` directory
 - comments_to_score.csv : Provided in competition
 - validation_data.csv: Provided in competition
-- toxic.csv - Created from data of previous toxicity competitions. This was created in a notebook on Kaggle
+- toxic.csv - Created this based on data of previous toxicity competitions. This was created in a notebook on Kaggle
 
-# Embeddings
+# Deep Learning Approaches
+
+## 1. Roberta Base - Regression approach
+Available under `src/score_approach` - this uses Roberta Base as backbone and predict toxicity score.
+
+## 2. Roberta Base - Comparison approach
+Available under `src/compare_approach` - this uses Roberta Base as backbone and predicts score for a pair (two texts) and uses MarginRankingLoss to train the model to correctly identify which of the two texts is more toxic than the other.
+- Idea and most aspects of the approach taken from NB published by Debarshi Chanda on Kaggle for this competition.
+
+
+# Downloads
+## Embeddings - Did not use this approach in final solution
 All embedding files should be placed in the "embeddings/" directory.
 Embeddings of choice are available at: https://github.com/RaRe-Technologies/gensim-data
 
 We have tested with `glove-wiki-gigaword-50` embedding available at: https://nlp.stanford.edu/projects/glove/
 
-## Alternative - Use gensim library
+### Alternative - Use gensim library
 You may use the gensim library to load the embeddings, as mentioned in the README file [here](https://github.com/RaRe-Technologies/gensim-data).
 
 While you will get the updated API in the link mentioned above, at the time of writing this README, following is the way to load embeddings using gensim
 
-### Glove Embedding
+#### Glove Embedding
 ```
 import gensim.downloader as api
 
@@ -44,7 +55,7 @@ output:
 """
 ```
 
-### Word2Vec Embedding
+#### Word2Vec Embedding
 
 ```
 from gensim.models.word2vec import Word2Vec
